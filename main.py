@@ -3,8 +3,8 @@ from indeed import *
 
 if __name__ == '__main__':
 
-    get_list_of_jobs_from_pole_emploi_open_data()
+    jobs_titles = get_list_of_jobs_titles_from_open_data()
 
-    checking_indeed_scraping_allowance()
-
-    get_jobs_from_indeed()
+    if jobs_titles is not None:
+        if create_jobs_dataset_from_indeed(jobs_titles):
+            print("Dataset correctly generated")
