@@ -197,7 +197,7 @@ def format_indeed_location(location):
 
 def create_jobs_dataset_from_indeed(jobs_titles):
     """
-    Generate a dataset.csv file (and a continuous residual_dataset.csv file) of all jobs titles with
+    Generate a dataset.csv file of all jobs titles with
     a record of the last 30 days of the number of jobs in all french departments
 
     Arguments : Pandas dataframe of JOB_ID/JOB_NAME
@@ -235,11 +235,12 @@ def create_jobs_dataset_from_indeed(jobs_titles):
     df['DEPT_OTHERS'] = 0  # counter for departments outside of metropolitan France (971, 972, 973, 974, 976)
 
     # Residual dataset in case a need to stop the dataset generation and retrieve only the first lines of the dataset
-    df_residual = pd.DataFrame(columns=df.columns)
-    df_residual.to_csv('residual_dataset.csv', sep=';', index_label='JOB_ID')
+    # df_residual = pd.DataFrame(columns=df.columns)
+    # df_residual.to_csv('residual_dataset.csv', sep=';', index_label='JOB_ID')
+    # debug_loc = False
 
+    # for index, rows in df.loc['10257':].iterrows():
     for index, rows in df.iterrows():
-
         url = get_indeed_url(rows[0], 'France')  # create the url while passing in the position and location.
 
         while True:
@@ -276,7 +277,9 @@ def create_jobs_dataset_from_indeed(jobs_titles):
 
         print(f"number of jobs of ({index}/{rows[0]}) is {df.loc[index, 'NUMBER_OF_JOBS']}")
 
-        rows.to_frame().T.to_csv('residual_dataset.csv', mode='a', sep=';', header=False)
+        # rows.to_frame().T.to_csv('residual_dataset.csv', mode='a', sep=';', header=False)
+        # if debug_loc:
+        #    break
 
     df.to_csv('dataset.csv', sep=';')  # finally create the full dataset
 

@@ -1,7 +1,5 @@
 # FRANCE_JOBS_DATASET_GENERATOR
-This project retrieve jobs titles from french Pole Emploi institution's Open Data then scraps Indeed to create :
-1. a dataset that counts the number of jobs with a track record during the last 30 days and per french metropolitan department.
-2. the equivalent residual dataset continuously in case a need to stop the program but still to keep the rows collected so far
+This project retrieve jobs titles from Pole Emploi (French unemployment agency) Open Data then scraps Indeed to create a dataset that counts the number of jobs with a track record during the last 30 days and per french metropolitan department.
 
 ## Installation
 Prerequisites

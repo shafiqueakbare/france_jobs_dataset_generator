@@ -128,3 +128,6 @@ zeromq=4.3.3=he6710b0_3
 zipp=3.4.0=pyhd3eb1b0_0
 zlib=1.2.11=h7b6447c_3
 zstd=1.4.5=h9ceee32_0
+requests~=2.25.0
+pandas~=1.1.5
+beautifulsoup4~=4.9.3
